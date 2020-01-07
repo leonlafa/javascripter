@@ -13,11 +13,12 @@ export class AppComponent {
       'https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js',
       'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js',
       'https://code.jquery.com/jquery-3.3.1.slim.min.js',
-      'https://bad-script.js'
-    ])
+      // 'https://bad-script.js'
+    ], {logger: false})
 
     service.onLoaded.subscribe((loaded) => {
       // Do something...
+      alert('All Scripts Have Loaded!!! 😄😄😄')
     })
   }
 }

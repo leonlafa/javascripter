@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable, forkJoin } from 'rxjs';
-import { Colors, Messages } from './types';
+import { Colors, Messages, Options, DEFAULT_OPTIONS } from './types';
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +12,20 @@ export class JavascripterService {
     return forkJoin(this.onLoaded$.map(loaded => loaded))
   }
 
-  public createScript(url: string): void {
+  public createScript(url: string, options: Options = DEFAULT_OPTIONS): void {
     this.createSubject(0);
     const script = this.createElement(url);
-    this.listenToEvents(script, url, 0);
+    this.listenToEvents(script, url, 0, options.logger);
   }
 
-  public createScripts(urls: string[]) {
-    console.log('%c JavaScripter ', `color:${Colors.JavScriptYellow}`)
-
+  public createScripts(urls: string[], options: Options = DEFAULT_OPTIONS) {
+    if (options.logger) {
+      console.log('%c JavaScripter ', `color:${Colors.JavScriptYellow}`)
+    }
     urls.forEach((url, id) => {
       const script = this.createElement(url);
       this.createSubject(id);
-      this.listenToEvents(script, url, id);
+      this.listenToEvents(script, url, id, options.logger);
     });
   }
 
@@ -42,19 +43,28 @@ export class JavascripterService {
     return script;
   }
 
-  private listenToEvents(script: HTMLElement, url, id) {
+  private listenToEvents(script: HTMLElement, url, id, logger) {
     script.onload = () => {
-      console.log(`%c ${url} %c ✅`, 'color: #fff', `color: ${Colors.Success}`)
+      if (logger) {
+        console.log(
+          `%c ${url} %c ✅`,
+          'color: #fff',
+          `color: ${Colors.Success}`)
+      }
       this.onLoaded$[id].next(url)
       this.onLoaded$[id].complete();
     };
 
     script.onerror = () => {
-      console.log(`%c ${url} %c ❌`, 'color: #fff', `color: ${Colors.Error}`)
+      if (logger) {
+        console.log(
+          `%c ${url} %c ❌`,
+          'color: #fff',
+          `color: ${Colors.Error}`)
+      }
       this.onLoaded$[id].error(Messages.FailedToLoad + url);
       this.onLoaded$[id].complete();
     };
   }
 }
 
-//Options {logger: boolean, exit: boolean, timeOut: number}

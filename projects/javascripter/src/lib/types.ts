@@ -8,3 +8,11 @@ export enum Colors {
 export enum Messages {
     FailedToLoad = 'Failed to load '
 }
+
+export interface Options {
+    logger: boolean;
+}
+
+export const DEFAULT_OPTIONS: Options = {
+    logger: true
+}
