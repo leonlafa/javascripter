@@ -1,3 +1,5 @@
+import { InjectionToken } from '@angular/core';
+
 export enum Colors {
     Error = '#ff0000',
     Inverse = '#fff',
@@ -16,3 +18,6 @@ export interface Options {
 export const DEFAULT_OPTIONS: Options = {
     logger: true
 }
+
+
+export const OPTIONS = new InjectionToken<Options>('Options');

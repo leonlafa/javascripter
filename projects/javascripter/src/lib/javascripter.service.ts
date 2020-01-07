@@ -1,24 +1,26 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Subject, Observable, forkJoin } from 'rxjs';
-import { Colors, Messages, Options, DEFAULT_OPTIONS } from './types';
+import { Colors, Messages, Options, OPTIONS } from './types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JavascripterService {
+  constructor(@Inject(OPTIONS) public options: Options) { }
+
   private onLoaded$: Subject<any>[] = []
 
   public get onLoaded(): Observable<any> {
     return forkJoin(this.onLoaded$.map(loaded => loaded))
   }
 
-  public createScript(url: string, options: Options = DEFAULT_OPTIONS): void {
+  public createScript(url: string, options = this.options): void {
     this.createSubject(0);
     const script = this.createElement(url);
     this.listenToEvents(script, url, 0, options.logger);
   }
 
-  public createScripts(urls: string[], options: Options = DEFAULT_OPTIONS) {
+  public createScripts(urls: string[], options = this.options) {
     if (options.logger) {
       console.log('%c JavaScripter ', `color:${Colors.JavScriptYellow}`)
     }

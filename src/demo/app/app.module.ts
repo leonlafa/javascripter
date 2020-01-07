@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Provider } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { JavascripterModule } from 'projects/javascripter/src/public-api';
@@ -10,7 +10,7 @@ import { JavascripterModule } from 'projects/javascripter/src/public-api';
   ],
   imports: [
     BrowserModule,
-    JavascripterModule
+    JavascripterModule.forRoot({ logger: false })
   ],
   providers: [],
   bootstrap: [AppComponent]
