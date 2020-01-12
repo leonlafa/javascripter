@@ -1,6 +1,18 @@
-import { Injectable, Inject } from '@angular/core';
-import { Subject, Observable, forkJoin } from 'rxjs';
-import { Colors, Messages, Options, OPTIONS } from './types';
+import {
+  Injectable,
+  Inject
+} from '@angular/core';
+import {
+  Subject,
+  Observable,
+  forkJoin
+} from 'rxjs';
+import {
+  Colors,
+  Messages,
+  Options,
+  OPTIONS
+} from './types';
 
 @Injectable({
   providedIn: 'root'
@@ -10,17 +22,34 @@ export class JavascripterService {
 
   private onLoaded$: Subject<any>[] = []
 
+  /**
+   *  Returns an observable when all scripts have loaded
+   *  @return Observable<Boolean> loaded
+   */
   public get onLoaded(): Observable<any> {
     return forkJoin(this.onLoaded$.map(loaded => loaded))
   }
 
-  public createScript(url: string, options = this.options): void {
+  /**
+   *  Creates a single script
+   *  @param string url
+   *  @param Options options
+   *  @return void _
+   */
+  public createScript(url: string, options: Options = this.options): void {
     this.createSubject(0);
     const script = this.createElement(url);
     this.listenToEvents(script, url, 0, options.logger);
   }
 
-  public createScripts(urls: string[], options = this.options) {
+
+  /**
+   *  Creates multiple scripts
+   *  @param string[] urls
+   *  @param Options options
+   *  @return void _
+   */
+  public createScripts(urls: string[], options: Options = this.options): void {
     if (options.logger) {
       console.log('%c JavaScripter ', `color:${Colors.JavScriptYellow}`)
     }
@@ -69,4 +98,3 @@ export class JavascripterService {
     };
   }
 }
-
