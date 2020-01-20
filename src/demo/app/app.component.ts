@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { JavascripterService } from 'projects/javascripter/src/public-api';
+import { JavaScripterService } from 'projects/javascripter/src/public-api';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +8,16 @@ import { JavascripterService } from 'projects/javascripter/src/public-api';
 })
 export class AppComponent {
   title = 'javascripter-demo-app';
-  constructor(private service: JavascripterService) {
+  constructor(private service: JavaScripterService) {
     this.service.createScripts([
       'https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js',
       'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js',
       'https://code.jquery.com/jquery-3.3.1.slim.min.js',
-      // 'https://bad-script.js'
+      'https://bad-script.js'
     ])
 
     service.onLoaded.subscribe((loaded) => {
       // Do something...
-      // alert('All Scripts Have Loaded!!! 😄😄😄')
     })
   }
 }

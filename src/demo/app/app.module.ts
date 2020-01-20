@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Provider } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { JavascripterModule } from 'projects/javascripter/src/public-api';
+import { JavaScripterModule } from 'projects/javascripter/src/public-api';
 
 @NgModule({
   declarations: [
@@ -10,7 +10,7 @@ import { JavascripterModule } from 'projects/javascripter/src/public-api';
   ],
   imports: [
     BrowserModule,
-    JavascripterModule.forRoot({ logger: false })
+    JavaScripterModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,23 +1,23 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { JavascripterService } from '../lib/javascripter.service';
+import { JavaScripterService } from '../lib/javascripter.service';
 import { Options, DEFAULT_OPTIONS, OPTIONS } from './types';
 
 @NgModule({
   providers: [
-    JavascripterService,
+    JavaScripterService,
     {
       provide: OPTIONS,
       useValue: DEFAULT_OPTIONS,
     }
   ]
 })
-export class JavascripterModule {
-  static forRoot(options: Options ): ModuleWithProviders {
+export class JavaScripterModule {
+  static forRoot(options: Options = DEFAULT_OPTIONS): ModuleWithProviders {
     return {
-      ngModule: JavascripterModule,
+      ngModule: JavaScripterModule,
       providers: [
-        { 
-          provide: OPTIONS, 
+        {
+          provide: OPTIONS,
           useValue: options },
       ]
     };

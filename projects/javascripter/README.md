@@ -1,24 +1,39 @@
-# Javascripter
+# JavaScripter
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.3.
+> A library for loading scripts 😄
 
-## Code scaffolding
+![](screen-shot.png)
 
-Run `ng generate component component-name --project javascripter` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project javascripter`.
-> Note: Don't forget to add `--project javascripter` or else it will be added to the default project in your `angular.json` file. 
+### Usage
 
-## Build
+```ts
+import { Component } from "@angular/core";
+import { JavaScripterService } from "projects/javascripter/src/public-api";
 
-Run `ng build javascripter` to build the project. The build artifacts will be stored in the `dist/` directory.
+@Component({
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"]
+})
+export class AppComponent {
+  title = "javascripter-demo-app";
+  constructor(private service: JavaScripterService) {
+    this.service.createScripts([
+      "https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js",
+      "https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js",
+      "https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    ]);
 
-## Publishing
+    service.onLoaded.subscribe(loaded => {
+      // Do something...
+    });
+  }
+}
+```
 
-After building your library with `ng build javascripter`, go to the dist folder `cd dist/javascripter` and run `npm publish`.
+## Was this lib useful?
 
-## Running unit tests
-
-Run `ng test javascripter` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+If you found this lib _useful_,
+please ⭐️the lib to show your appreciation!
+<br>
+In the spirit of open-source, share this lib with others in the community who might find it useful 😀

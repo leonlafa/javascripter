@@ -17,7 +17,7 @@ import {
 @Injectable({
   providedIn: 'root'
 })
-export class JavascripterService {
+export class JavaScripterService {
   constructor(@Inject(OPTIONS) public options: Options) { }
 
   private onLoaded$: Subject<any>[] = []

@@ -1,11 +1,11 @@
 import { TestBed } from '@angular/core/testing';
-import { JavascripterService } from './javascripter.service';
+import { JavaScripterService } from './javascripter.service';
 
 describe('JavascripterService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: JavascripterService = TestBed.get(JavascripterService);
+    const service: JavaScripterService = TestBed.get(JavaScripterService);
     expect(service).toBeTruthy();
   });
 });
