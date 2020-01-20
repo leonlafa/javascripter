@@ -1,6 +1,25 @@
 {
   "name": "javascripter",
-  "version": "0.0.1", 
+  "version": "0.0.2", 
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonlafa/javascripter"
+  },
+  "keywords": [
+    "javascript",
+    "script",
+    "scripter",
+    "scripts",
+    "load scripts",
+    "run scripts",
+    "leonlafa"
+  ],
+  "author": "Leon Lafayette(leonlafa)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leonlafa/javascripter/issues"
+  },
+  "homepage": "https://github.com/leonlafa/javascripter#readme",
   "peerDependencies": {
     "@angular/common": "^8.1.3",
     "@angular/core": "^8.1.3"
