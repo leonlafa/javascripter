@@ -10,8 +10,9 @@
     "script",
     "scripter",
     "scripts",
-    "load scripts",
-    "run scripts",
+    "script-loader",
+    "load-scripts",
+    "run-scripts",
     "leonlafa"
   ],
   "author": "Leon Lafayette(leonlafa)",
