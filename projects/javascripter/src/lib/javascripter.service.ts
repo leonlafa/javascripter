@@ -17,7 +17,7 @@ import {
 @Injectable({
   providedIn: 'root'
 })
-export class JavaScripterService {
+export class JavaScripter {
   constructor(@Inject(OPTIONS) public options: Options) { }
 
   private onLoaded$: Subject<any>[] = []
@@ -41,7 +41,6 @@ export class JavaScripterService {
     const script = this.createElement(url);
     this.listenToEvents(script, url, 0, options.logger);
   }
-
 
   /**
    *  Creates multiple scripts

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { JavaScripterService } from 'projects/javascripter/src/public-api';
+import { JavaScripter } from 'javascripter';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import { JavaScripterService } from 'projects/javascripter/src/public-api';
 })
 export class AppComponent {
   title = 'javascripter-demo-app';
-  constructor(private service: JavaScripterService) {
+  constructor(private service: JavaScripter) {
     this.service.createScripts([
       'https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js',
       'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js',

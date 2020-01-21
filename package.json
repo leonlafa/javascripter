@@ -2,12 +2,13 @@
   "name": "javascripter-demo-app",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
+    "prestart": "ng build javascripter",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "lint": "ng lint --fix",
+    "build-lib": "ng build javascripter",
+    "npm-pack": "cd dist/javascripter && npm pack",
+    "package": "npm run build-lib && npm run npm-pack"
   },
   "private": true,
   "dependencies": {

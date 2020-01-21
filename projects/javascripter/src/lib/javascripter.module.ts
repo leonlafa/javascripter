@@ -1,10 +1,10 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { JavaScripterService } from '../lib/javascripter.service';
+import { JavaScripter } from '../lib/javascripter.service';
 import { Options, DEFAULT_OPTIONS, OPTIONS } from './types';
 
 @NgModule({
   providers: [
-    JavaScripterService,
+    JavaScripter,
     {
       provide: OPTIONS,
       useValue: DEFAULT_OPTIONS,
