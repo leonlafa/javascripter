@@ -6,9 +6,11 @@
 
 ### Usage
 
+### Component
+
 ```ts
 import { Component } from "@angular/core";
-import { JavaScripterService } from "projects/javascripter/src/public-api";
+import { JavaScripter } from "javascripter";
 
 @Component({
   selector: "app-root",
@@ -17,18 +19,42 @@ import { JavaScripterService } from "projects/javascripter/src/public-api";
 })
 export class AppComponent {
   title = "javascripter-demo-app";
-  constructor(private service: JavaScripterService) {
+  constructor(private javascripter: Javascripter) {
     this.service.createScripts([
       "https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js",
       "https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js",
       "https://code.jquery.com/jquery-3.3.1.slim.min.js"
     ]);
 
-    service.onLoaded.subscribe(loaded => {
+    javascripter.onLoaded.subscribe(loaded => {
       // Do something...
     });
   }
 }
+```
+
+
+### Module
+
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import { JavaScripterModule } from 'javascripter';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    JavaScripterModule.forRoot({logger: false})  // To remove logs
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
 
 ## Was this lib useful?
