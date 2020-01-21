@@ -19,20 +19,19 @@ import { JavaScripter } from "javascripter";
 })
 export class AppComponent {
   title = "javascripter-demo-app";
-  constructor(private javascripter: Javascripter) {
-    this.service.createScripts([
+  constructor(private javascripter: JavaScripter) {
+    this.javascripter.createScripts([
       "https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js",
       "https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js",
       "https://code.jquery.com/jquery-3.3.1.slim.min.js"
     ]);
 
-    javascripter.onLoaded.subscribe(loaded => {
+    this.javascripter.onLoaded.subscribe(loaded => {
       // Do something...
     });
   }
 }
 ```
-
 
 ### Module
 
@@ -55,7 +54,7 @@ import { JavaScripterModule } from 'javascripter';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-```
+````
 
 ## Was this lib useful?
 
