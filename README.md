@@ -4,8 +4,6 @@
 
 ![](projects/javascripter/screen-shot.png)
 
-### Usage
-
 ### Component
 
 ```ts
@@ -33,7 +31,6 @@ export class AppComponent {
 }
 ```
 
-
 ### Module
 
 ```ts
@@ -51,7 +48,6 @@ import { JavaScripterModule } from 'javascripter';
     BrowserModule,
     JavaScripterModule.forRoot({logger: false})  // To remove logs
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
