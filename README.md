@@ -56,6 +56,6 @@ export class AppModule { }
 ## Was this lib useful?
 
 If you found this lib _useful_,
-please ⭐️ the lib to show your appreciation!
+please ⭐️  the lib to show your appreciation!
 <br>
 In the spirit of open-source, share this lib with others in the community who might find it useful 😀
