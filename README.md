@@ -2,7 +2,7 @@
 
 > A library for loading JavaScripts 😄
 
-Great if you;re making a lib or need various scripts in your app/website
+Great if you're making a lib or need various scripts in your app/website
 
 ![](projects/javascripter/screen-shot.png)
 
